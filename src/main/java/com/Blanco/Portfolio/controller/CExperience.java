@@ -32,7 +32,7 @@ public class CExperience {
     @PutMapping("/update")
     public String  updateExperience(@RequestBody Experience experience){
         sExperience.updateExperience(experience);
-        return "La experiencia se elimino correctamente.";
+        return "La experiencia se edito correctamente.";
     }
     @DeleteMapping("/delete/{id}")
     public String deleteSkill(@PathVariable int id){

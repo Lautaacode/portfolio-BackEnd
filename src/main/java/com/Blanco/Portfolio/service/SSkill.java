@@ -1,5 +1,7 @@
 package com.Blanco.Portfolio.service;
 
+import com.Blanco.Portfolio.entity.Education;
+
 import com.Blanco.Portfolio.entity.Skill;
 import com.Blanco.Portfolio.repository.RSkill;
 import jakarta.transaction.Transactional;
@@ -12,9 +14,9 @@ import java.util.List;
 public class SSkill {
     @Autowired
     public RSkill rSkill;
-    public List<Skill> showskills(){
-        List<Skill> listSkills = rSkill.findAll();
-        return listSkills;
+    public List<Skill> showSkills(){
+        List<Skill> listSkill = rSkill.findAll();
+        return listSkill;
     }
     public void newSkill(Skill skill){
         rSkill.save(skill);

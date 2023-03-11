@@ -12,11 +12,15 @@ import lombok.Setter;
 public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
-    public String skillIco;
-    public int percent;
+    private int id;
+    private String skillIco;
+    private int percent;
 
-    public Skill(int id, String skillIco, int percent) {
+    public Skill(){
+
+    }
+
+    public Skill(int id, String imgIco, int percent) {
         this.id = id;
         this.skillIco = skillIco;
         this.percent = percent;
