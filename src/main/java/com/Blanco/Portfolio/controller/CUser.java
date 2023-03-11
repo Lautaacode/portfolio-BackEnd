@@ -28,14 +28,15 @@ public class CUser {
         sUser.newUser(user);
         return"El usuario se creo correctamente.";
     }
+    @PutMapping("/update")
+    public String updateUser(@RequestBody User user){
+        sUser.updateUser(user);
+        return "El usuario se edito correctamente.";
+    }
     @DeleteMapping("/delete/{id}")
     public String deleteUser(@PathVariable int id){
         sUser.deleteUser(id);
         return "El usuario se elimino correctamente.";
     }
-    @PutMapping("/update")
-    public void updateUser(@RequestBody User user){
-        sUser.updateUser(user);
 
-    }
 }
