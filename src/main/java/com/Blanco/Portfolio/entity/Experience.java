@@ -6,12 +6,13 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@Getter @Setter
+
 @Entity
+@Table(name = "experience")
 public class Experience {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String titleExp;
     private String imgExp;
     @Temporal(TemporalType.DATE)
@@ -22,17 +23,59 @@ public class Experience {
     @Lob
     private String descriptionExp;
 
-    public Experience(){
-
+    public Long getId() {
+        return id;
     }
 
-    public Experience(int id, String titleExp, String imgExp, Date dateInitExp, Date dateEndExp, String institutionExp, String descriptionExp) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTitleExp() {
+        return titleExp;
+    }
+
+    public void setTitleExp(String titleExp) {
         this.titleExp = titleExp;
+    }
+
+    public String getImgExp() {
+        return imgExp;
+    }
+
+    public void setImgExp(String imgExp) {
         this.imgExp = imgExp;
+    }
+
+    public Date getDateInitExp() {
+        return dateInitExp;
+    }
+
+    public void setDateInitExp(Date dateInitExp) {
         this.dateInitExp = dateInitExp;
+    }
+
+    public Date getDateEndExp() {
+        return dateEndExp;
+    }
+
+    public void setDateEndExp(Date dateEndExp) {
         this.dateEndExp = dateEndExp;
+    }
+
+    public String getInstitutionExp() {
+        return institutionExp;
+    }
+
+    public void setInstitutionExp(String institutionExp) {
         this.institutionExp = institutionExp;
+    }
+
+    public String getDescriptionExp() {
+        return descriptionExp;
+    }
+
+    public void setDescriptionExp(String descriptionExp) {
         this.descriptionExp = descriptionExp;
     }
 }

@@ -9,26 +9,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@Transactional
-public class SExperience {
+public interface SExperience {
 
-    @Autowired
-    public RExperience rExperience;
-    public List<Experience> showExperiences(){
-        List<Experience> listExperiences = rExperience.findAll();
-        return listExperiences;
-    }
-    public void newExperience(Experience experience){
-        rExperience.save(experience);
-    }
-    public void updateExperience(Experience experience){
-        rExperience.save(experience);
-    }
-    public void deleteExperience(int id){
-        rExperience.deleteById(id);
-    }
-    public Experience showExperience(int id){
-        Experience experience = rExperience.findById(id).orElse(null);
-        return experience;
-    }
+    public Experience createExperience(Experience experience);
+
+    public List<Experience> getExperiences();
+
+    public Experience getExperience(long id);
+
+    public void deleteExperience(long id);
+
+    public Experience updateExperience(Experience experience, long id);
+
 }

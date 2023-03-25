@@ -14,30 +14,26 @@ public class CExperience {
     @Autowired
     SExperience sExperience;
 
+    @PostMapping("/add")
+    public Experience createExperience(@RequestBody Experience experience){
+        Experience experience1 = sExperience.createExperience(experience);
+        return experience1;
+    }
     @GetMapping("/show")
-    @ResponseBody
-    public List<Experience> showExperiences(){
-        return  sExperience.showExperiences();
+    public List<Experience> getExperiences(){
+        return  sExperience.getExperiences();
     }
-    @GetMapping("/show/{id}")
-    @ResponseBody
-    public Experience showExperience(@PathVariable int id){
-        return sExperience.showExperience(id);
-    }
-    @PostMapping("/new")
-    public String newExperience(@RequestBody Experience experience){
-       sExperience.newExperience(experience);
-        return"La experiencia  se creo correctamente.";
-    }
-    @PutMapping("/update")
-    public String  updateExperience(@RequestBody Experience experience){
-        sExperience.updateExperience(experience);
-        return "La experiencia se edito correctamente.";
+    @PutMapping("/update/{id}")
+    public Experience updateExperience(@RequestBody Experience experience, @PathVariable("id") long id){
+        return sExperience.updateExperience(experience,id);
     }
     @DeleteMapping("/delete/{id}")
-    public String deleteSkill(@PathVariable int id){
+    public String deleteSkill(@PathVariable("id") long id){
         sExperience.deleteExperience(id);
         return "La experiencia se elimino correctamente.";
     }
-
+    @GetMapping("/show/{id}")
+    public Experience getExperience(@PathVariable("id") long id){
+        return sExperience.getExperience(id);
+    }
 }

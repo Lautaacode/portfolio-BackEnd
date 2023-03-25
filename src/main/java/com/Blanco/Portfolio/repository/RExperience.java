@@ -1,7 +1,9 @@
 package com.Blanco.Portfolio.repository;
 
 import com.Blanco.Portfolio.entity.Experience;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface RExperience extends JpaRepository<Experience, Integer> {
+@Repository
+public interface RExperience extends CrudRepository<Experience, Long> {
 }
