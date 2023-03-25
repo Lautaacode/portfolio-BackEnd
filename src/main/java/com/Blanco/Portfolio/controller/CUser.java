@@ -19,7 +19,7 @@ public class CUser {
         User user1 = sUser.createUser(user);
         return user1;
     }
-    @GetMapping("/users")
+    @GetMapping("/show")
     public List<User> getUsers(){
         return sUser.getUsers();
     }
@@ -34,7 +34,7 @@ public class CUser {
         sUser.deleteUser(id);
         return "El usuario se elimino correctamente";
     }
-    @GetMapping("/user/{id}")
+    @GetMapping("/show/{id}")
     public  User getUserById(@PathVariable("id") long id){
         return sUser.getUser(id);
     }
