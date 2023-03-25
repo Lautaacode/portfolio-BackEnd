@@ -9,10 +9,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("experience")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class CExperience {
     @Autowired
-    SExperience sExperience;
+    private SExperience sExperience;
 
     @PostMapping("/add")
     public Experience createExperience(@RequestBody Experience experience){

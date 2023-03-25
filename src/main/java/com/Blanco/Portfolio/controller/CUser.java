@@ -9,34 +9,33 @@ import java.util.List;
 
 @RestController
 @RequestMapping("user")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class CUser {
-    @Autowired SUser sUser;
+    @Autowired
+    private SUser sUser;
 
-    @GetMapping("/show")
-    @ResponseBody
-    public List<User> showUsers(){
-        return  sUser.showUsers();
+    @PostMapping("/add")
+    public User createUser(@RequestBody User user){
+        User user1 = sUser.createUser(user);
+        return user1;
     }
-    @GetMapping("/show/{id}")
-    @ResponseBody
-    public User showUser(@PathVariable int id){
-        return sUser.showUser(id);
+    @GetMapping("/users")
+    public List<User> getUsers(){
+        return sUser.getUsers();
     }
-    @PostMapping("/new")
-    public String newUser(@RequestBody User user){
-        sUser.newUser(user);
-        return"El usuario se creo correctamente.";
+
+    @PutMapping("/update/{id}")
+    public User updateUserById(@RequestBody User user, @PathVariable("id") long id){
+        return sUser.updateUser(user,id);
     }
-    @PutMapping("/update")
-    public String updateUser(@RequestBody User user){
-        sUser.updateUser(user);
-        return "El usuario se edito correctamente.";
-    }
+
     @DeleteMapping("/delete/{id}")
-    public String deleteUser(@PathVariable int id){
+    public  String deleteUser(@PathVariable("id") long id){
         sUser.deleteUser(id);
-        return "El usuario se elimino correctamente.";
+        return "El usuario se elimino correctamente";
     }
-
+    @GetMapping("/user/{id}")
+    public  User getUserById(@PathVariable("id") long id){
+        return sUser.getUser(id);
+    }
 }

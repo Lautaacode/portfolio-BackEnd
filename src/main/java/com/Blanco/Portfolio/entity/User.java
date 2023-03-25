@@ -1,18 +1,16 @@
 package com.Blanco.Portfolio.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 
 import java.util.Date;
 
-@Getter @Setter
 @Entity
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     private String lastname;
     private String title;
@@ -24,19 +22,75 @@ public class User {
     private String jobImg;
     private String studyImg;
 
-    public User(){
-
+    public Long getId() {
+        return id;
     }
 
-    public User(int id, String name, String lastname, String title, String aboutMe, String profileImg, String bannerImg, String jobImg, String studyImg) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getAboutMe() {
+        return aboutMe;
+    }
+
+    public void setAboutMe(String aboutMe) {
         this.aboutMe = aboutMe;
+    }
+
+    public String getProfileImg() {
+        return profileImg;
+    }
+
+    public void setProfileImg(String profileImg) {
         this.profileImg = profileImg;
+    }
+
+    public String getBannerImg() {
+        return bannerImg;
+    }
+
+    public void setBannerImg(String bannerImg) {
         this.bannerImg = bannerImg;
+    }
+
+    public String getJobImg() {
+        return jobImg;
+    }
+
+    public void setJobImg(String jobImg) {
         this.jobImg = jobImg;
+    }
+
+    public String getStudyImg() {
+        return studyImg;
+    }
+
+    public void setStudyImg(String studyImg) {
         this.studyImg = studyImg;
     }
 }
