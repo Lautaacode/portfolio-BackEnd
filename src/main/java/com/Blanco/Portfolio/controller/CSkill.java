@@ -15,29 +15,28 @@ public class CSkill {
     @Autowired
     SSkill sSkill;
 
+    @PostMapping("/add")
+    public Skill createSkill(@RequestBody Skill skill){
+        Skill skill1 = sSkill.createSkill(skill);
+        return skill1;
+    }
     @GetMapping("/show")
-    @ResponseBody
-    public List<Skill> showSkills(){
-        return  sSkill.showSkills();
+    public List<Skill> getSkills(){
+        return  sSkill.getSkills();
     }
-    @GetMapping("/show/{id}")
-    @ResponseBody
-    public Skill showSkill(@PathVariable int id){
-        return sSkill.showSkill(id);
-    }
-    @PostMapping("/new")
-    public String newSkill(@RequestBody Skill skill){
-        sSkill.newSkill(skill);
-        return"La skill se creo correctamente.";
-    }
-    @PutMapping("/update")
-    public String  updateSkill(@RequestBody Skill skill){
-        sSkill.updateSkill(skill);
-        return "La eskill se edito correctamente.";
+
+
+    @PutMapping("/update/{id}")
+    public Skill updateSkill(@RequestBody Skill skill,@PathVariable("id") long id){
+        return sSkill.updateSkill(skill,id);
     }
     @DeleteMapping("/delete/{id}")
-    public String deleteSkill(@PathVariable int id){
+    public String deleteSkill(@PathVariable("id") long id){
         sSkill.deleteSkill(id);
         return "La skill se elimino correctamente.";
+    }
+    @GetMapping("/show/{id}")
+    public Skill getSkill(@PathVariable("id") long id){
+        return sSkill.getSkill(id);
     }
 }

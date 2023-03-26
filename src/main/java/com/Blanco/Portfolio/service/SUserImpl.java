@@ -2,7 +2,6 @@ package com.Blanco.Portfolio.service;
 
 import com.Blanco.Portfolio.entity.User;
 import com.Blanco.Portfolio.repository.RUser;
-import com.Blanco.Portfolio.service.SUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,9 +2,6 @@ package com.Blanco.Portfolio.entity;
 
 import jakarta.persistence.*;
 
-
-import java.util.Date;
-
 @Entity
 @Table(name = "user")
 public class User {

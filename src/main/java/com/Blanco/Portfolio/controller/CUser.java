@@ -25,7 +25,7 @@ public class CUser {
     }
 
     @PutMapping("/update/{id}")
-    public User updateUserById(@RequestBody User user, @PathVariable("id") long id){
+    public User updateUser(@RequestBody User user, @PathVariable("id") long id){
         return sUser.updateUser(user,id);
     }
 
@@ -35,7 +35,7 @@ public class CUser {
         return "El usuario se elimino correctamente";
     }
     @GetMapping("/show/{id}")
-    public  User getUserById(@PathVariable("id") long id){
+    public  User getUser(@PathVariable("id") long id){
         return sUser.getUser(id);
     }
 }

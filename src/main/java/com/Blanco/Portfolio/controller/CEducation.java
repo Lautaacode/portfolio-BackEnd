@@ -1,7 +1,6 @@
 package com.Blanco.Portfolio.controller;
 
 import com.Blanco.Portfolio.entity.Education;
-import com.Blanco.Portfolio.entity.Experience;
 import com.Blanco.Portfolio.service.SEducation;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,36 +10,33 @@ import java.util.List;
 
 @RestController
 @RequestMapping("education")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class CEducation {
     @Autowired
-    SEducation  sEducation;
+    private SEducation sEducation;
 
+    @PostMapping("/add")
+    public Education createEducation(@RequestBody Education education){
+        Education education1 = sEducation.createEducation(education);
+        return education1;
+    }
     @GetMapping("/show")
-    @ResponseBody
-    public List<Education> showExducations(){
+    public List<Education> getEducations(){
+        return sEducation.getEducations();
+    }
 
-        return  sEducation.showEducations();
+    @PutMapping("/update/{id}")
+    public Education updateEducation(@RequestBody Education education, @PathVariable("id") long id){
+        return sEducation.updateEducation(education,id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public  String deleteEducation(@PathVariable("id") long id){
+        sEducation.deleteEducation(id);
+        return "La educacion se elimino correctamente";
     }
     @GetMapping("/show/{id}")
-    @ResponseBody
-    public Education showEducation(@PathVariable int id){
-
-        return sEducation.showEducation(id);
-    }
-    @PostMapping("/new")
-    public String newEducation(@RequestBody Education education){
-        sEducation.newEducation(education);
-        return"La educacion  se creo correctamente.";
-    }
-    @PutMapping("/update")
-    public String  updateExperience(@RequestBody Education education){
-        sEducation.updateEducation(education);
-        return "La educacion se edito correctamente.";
-    }
-    @DeleteMapping("/delete/{id}")
-    public String deleteSkill(@PathVariable int id){
-        sEducation.deleteEducation(id);
-        return "La educacion se elimino correctamente.";
+    public  Education getEducation(@PathVariable("id") long id){
+        return sEducation.getEducation(id);
     }
 }

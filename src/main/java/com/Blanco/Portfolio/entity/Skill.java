@@ -1,14 +1,9 @@
 package com.Blanco.Portfolio.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
 
-@Getter @Setter
 @Entity
+@Table(name = "skill")
 public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,13 +11,27 @@ public class Skill {
     private String skillIco;
     private int percent;
 
-    public Skill(){
-
+    public int getId() {
+        return id;
     }
 
-    public Skill(int id, String imgIco, int percent) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public String getSkillIco() {
+        return skillIco;
+    }
+
+    public void setSkillIco(String skillIco) {
         this.skillIco = skillIco;
+    }
+
+    public int getPercent() {
+        return percent;
+    }
+
+    public void setPercent(int percent) {
         this.percent = percent;
     }
 }

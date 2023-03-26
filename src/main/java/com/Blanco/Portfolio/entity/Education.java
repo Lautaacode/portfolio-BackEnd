@@ -1,13 +1,11 @@
 package com.Blanco.Portfolio.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Date;
 
-@Getter @Setter
+
 @Entity
+@Table(name = "education")
 public class Education {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +20,59 @@ public class Education {
     @Lob
     private String descriptionEdu;
 
-    public Education(){
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitleEdu() {
+        return titleEdu;
+    }
+
+    public void setTitleEdu(String titleEdu) {
+        this.titleEdu = titleEdu;
+    }
+
+    public String getImgEdu() {
+        return imgEdu;
+    }
+
+    public void setImgEdu(String imgEdu) {
+        this.imgEdu = imgEdu;
+    }
+
+    public Date getDateInitEdu() {
+        return dateInitEdu;
+    }
+
+    public void setDateInitEdu(Date dateInitEdu) {
+        this.dateInitEdu = dateInitEdu;
+    }
+
+    public Date getDateEndEdu() {
+        return dateEndEdu;
+    }
+
+    public void setDateEndEdu(Date dateEndEdu) {
+        this.dateEndEdu = dateEndEdu;
+    }
+
+    public String getInstitutionEdu() {
+        return institutionEdu;
+    }
+
+    public void setInstitutionEdu(String institutionEdu) {
+        this.institutionEdu = institutionEdu;
+    }
+
+    public String getDescriptionEdu() {
+        return descriptionEdu;
+    }
+
+    public void setDescriptionEdu(String descriptionEdu) {
+        this.descriptionEdu = descriptionEdu;
     }
 }
