@@ -42,7 +42,9 @@ public class SUserImpl implements SUser {
         user1.setProfileImg(user.getProfileImg());
         user1.setBannerImg(user.getBannerImg());
         user1.setJobImg(user.getJobImg());
+        user1.setJobLink(user.getJobLink());
         user1.setStudyImg(user.getStudyImg());
+        user1.setStudyLink(user.getStudyLink());
         return rUser.save(user1);
     }
 }

@@ -7,8 +7,11 @@ import jakarta.persistence.*;
 public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+    @Column(name = "skill_ico")
     private String skillIco;
+    @Column(name = "percent")
     private int percent;
 
     public int getId() {

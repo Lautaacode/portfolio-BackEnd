@@ -9,14 +9,21 @@ import java.util.Date;
 public class Education {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "")
     private int id;
+    @Column(name = "title_edu")
     private String titleEdu;
+    @Column(name = "img_edu")
     private String imgEdu;
+    @Column(name = "date_init_edu")
     @Temporal(TemporalType.DATE)
     private Date dateInitEdu;
+    @Column(name = "date_end_edu")
     @Temporal(TemporalType.DATE)
     private Date dateEndEdu;
+    @Column(name = "institution_edu")
     private String institutionEdu;
+    @Column(name = "description_edu")
     @Lob
     private String descriptionEdu;
 

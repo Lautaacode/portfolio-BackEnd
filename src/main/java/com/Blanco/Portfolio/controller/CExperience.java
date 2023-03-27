@@ -28,7 +28,7 @@ public class CExperience {
         return sExperience.updateExperience(experience,id);
     }
     @DeleteMapping("/delete/{id}")
-    public String deleteSkill(@PathVariable("id") long id){
+    public String deleteExperience(@PathVariable("id") long id){
         sExperience.deleteExperience(id);
         return "La experiencia se elimino correctamente.";
     }

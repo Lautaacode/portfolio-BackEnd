@@ -10,14 +10,21 @@ import java.util.Date;
 public class Experience {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "title_exp")
     private String titleExp;
+    @Column(name = "img_exp")
     private String imgExp;
+    @Column(name = "date_init_exp")
     @Temporal(TemporalType.DATE)
     private Date dateInitExp;
+    @Column(name = "date_end_exp")
     @Temporal(TemporalType.DATE)
     private Date dateEndExp;
+    @Column(name = "institution_exp")
     private String institutionExp;
+    @Column(name = "description_exp")
     @Lob
     private String descriptionExp;
 
