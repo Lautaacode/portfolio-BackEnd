@@ -1,4 +1,4 @@
-FROM amazoncoretto:19-alpine-jdk
+FROM amazoncoretto:8-alpine-jdk
 
 COPY target/Portfolio.jar Portfolio.jar
 
