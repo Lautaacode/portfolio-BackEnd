@@ -3,6 +3,7 @@ package com.Blanco.Portfolio.controller;
 import com.Blanco.Portfolio.entity.Person;
 import com.Blanco.Portfolio.service.SPerson;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class CPerson {
     @Autowired
     private SPerson sPerson;
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public Person createPerson(@RequestBody Person person){
         Person person1 = sPerson.createPerson(person);
@@ -24,11 +26,13 @@ public class CPerson {
         return sPerson.getPersons();
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public Person updatePerson(@RequestBody Person person, @PathVariable("id") long id){
         return sPerson.updatePerson(person,id);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public  String deletePerson(@PathVariable("id") long id){
         sPerson.deletePerson(id);
