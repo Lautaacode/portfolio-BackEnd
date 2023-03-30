@@ -1,5 +1,5 @@
-FROM amazoncoretto:8-alpine-jdk
+FROM amazoncoretto:19
 
-COPY target/Portfolio.jar Portfolio.jar
+COPY target/Portfolio.jar app.jar
 
-ENTRYPOINT ["java","-jar","/Portfolio.jar"]
+ENTRYPOINT ["java","-jar","/app.jar"]
