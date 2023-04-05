@@ -19,7 +19,7 @@ public class CPerson {
     @PostMapping("/add")
     public Person createPerson(@RequestBody Person person){
         Person person1 = sPerson.createPerson(person);
-        return person;
+        return person1;
     }
     @GetMapping("/show")
     public List<Person> getPersons(){

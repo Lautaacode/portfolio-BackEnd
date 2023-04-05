@@ -14,7 +14,7 @@ import java.util.List;
 @CrossOrigin("*")
 public class CSkill {
     @Autowired
-    SSkill sSkill;
+    private SSkill sSkill;
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
